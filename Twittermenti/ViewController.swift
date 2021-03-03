@@ -10,7 +10,7 @@ import SwifteriOS
 import CoreML
 import SwiftyJSON
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var textField: UITextField!
@@ -24,8 +24,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.textField.delegate = self
     }
-
+    
+    // Pressed enter instead of click the predict button
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        fetchTweets()
+        return true
+    }
+    
     @IBAction func predictPressed(_ sender: Any) {
         fetchTweets()
     }
@@ -62,7 +70,6 @@ class ViewController: UIViewController {
                     sentimentScore -= 1
                 }
             }
-            print(sentimentScore)
             updateUI(with: sentimentScore)
         } catch {
             print("There was an error with making a prediction, \(error)")
