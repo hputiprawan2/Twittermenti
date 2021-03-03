@@ -27,8 +27,12 @@ class ViewController: UIViewController {
 //        print(prediction.label)
         
         swifter.searchTweet(using: "@Apple", lang: "en", count: 100, tweetMode: .extended) { (result, metadata) in
-            if let tweet = result[0]["full_text"].string {
-                print(tweet)
+            var tweets = [String]()
+            for i in 0..<100 {
+                if let tweet = result[i]["full_text"].string {
+                    tweets.append(tweet)
+                }
+                
             }
         } failure: { (error) in
             print("There was an error with the Twitter API request, \(error)")
