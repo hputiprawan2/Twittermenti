@@ -23,16 +23,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let prediction = try! sentimentClassifier.prediction(text: "@Apple is the best company!")
-//        print(prediction.label)
-        
         swifter.searchTweet(using: "@Apple", lang: "en", count: 100, tweetMode: .extended) { (result, metadata) in
-            var tweets = [String]()
+            var tweets = [TweetSentimentClassifierInput]()
             for i in 0..<100 {
                 if let tweet = result[i]["full_text"].string {
-                    tweets.append(tweet)
+                    // Convert Sting input into TweetSentimentClassifierInput
+                    let tweetForClassification = TweetSentimentClassifierInput(text: tweet)
+                    tweets.append(tweetForClassification)
                 }
                 
+            }
+            do {
+                let predictions = try self.sentimentClassifier.predictions(inputs: tweets)
+                for prediction in predictions {
+                    print(prediction.label)
+                }
+            } catch {
+                print("There was an error with making a prediction, \(error)")
             }
         } failure: { (error) in
             print("There was an error with the Twitter API request, \(error)")
