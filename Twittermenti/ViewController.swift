@@ -18,13 +18,42 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     let tweetCount = 100
     
-    let swifter = Swifter(consumerKey: "91TSj3HgnUtY8CHKSsvPlasrJ", consumerSecret: "M0rxJG8ohNR8z0Ius4BJml5GttNRXNUdniatfZkiRGrIJWGRd5")
+    private var apiKey: String {
+        get {
+            guard let filePath = Bundle.main.path(forResource: "Config", ofType: "plist") else {
+    fatalError("Couldn't find file 'Config.plist'.")
+        }
+     
+            let plist = NSDictionary(contentsOfFile: filePath)
+            guard let value = plist?.object(forKey: "API_Key") as? String else {
+            fatalError("Couldn't find key 'API_Key' in 'Config.plist'.")
+            }
+            return value
+        }
+    }
+
+    private var apiKeySecret: String {
+        get {
+            guard let filePath = Bundle.main.path(forResource: "Config", ofType: "plist") else {
+    fatalError("Couldn't find file 'Config.plist'.")
+        }
+     
+            let plist = NSDictionary(contentsOfFile: filePath)
+            guard let value = plist?.object(forKey: "API_Key_Secret") as? String else {
+            fatalError("Couldn't find key 'API_Key_Secret' in 'Config.plist'.")
+            }
+            return value
+        }
+    }
+
+    var swifter = Swifter(consumerKey: "dummy_key", consumerSecret: "dummy_key")
     
     let sentimentClassifier = TweetSentimentClassifier()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.textField.delegate = self
+        swifter = Swifter(consumerKey: apiKey, consumerSecret: apiKeySecret)
     }
     
     // Pressed enter instead of click the predict button

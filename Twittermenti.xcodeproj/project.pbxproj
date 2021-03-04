@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,8 +17,8 @@
 		C77C3DD125EE42C3009F94FE /* TweetSentimentClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C77C3DD025EE42C3009F94FE /* TweetSentimentClassifier.mlmodel */; };
 		C77C3DEA25EF6898009F94FE /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C77C3DDC25EF6733009F94FE /* SwifteriOS.framework */; };
 		C77C3DEB25EF6898009F94FE /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C77C3DDC25EF6733009F94FE /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C77C3DF425EF6C00009F94FE /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = C77C3DF325EF6C00009F94FE /* Secrets.plist */; };
-		C77C3DF625EF6DC1009F94FE /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77C3DF525EF6DC1009F94FE /* SettingsModel.swift */; };
+		C77C3DF425EF6C00009F94FE /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C77C3DF325EF6C00009F94FE /* Config.plist */; };
+		C77C3DF625EF6DC1009F94FE /* MyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77C3DF525EF6DC1009F94FE /* MyConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,8 +87,8 @@
 		AD9EC66120FE319A002AE9BF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C77C3DD025EE42C3009F94FE /* TweetSentimentClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TweetSentimentClassifier.mlmodel; sourceTree = "<group>"; };
 		C77C3DD325EF6732009F94FE /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = ../../Swifter/Swifter.xcodeproj; sourceTree = "<group>"; };
-		C77C3DF325EF6C00009F94FE /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
-		C77C3DF525EF6DC1009F94FE /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		C77C3DF325EF6C00009F94FE /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		C77C3DF525EF6DC1009F94FE /* MyConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +110,6 @@
 				A8A7DECBC13575CD1516F9FB /* Pods-Twittermenti.debug.xcconfig */,
 				45EB53EDC443F6A655A98F04 /* Pods-Twittermenti.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -138,9 +137,9 @@
 			isa = PBXGroup;
 			children = (
 				AD9EC64F20FE2EF4002AE9BF /* AppDelegate.swift */,
-				C77C3DF525EF6DC1009F94FE /* SettingsModel.swift */,
+				C77C3DF525EF6DC1009F94FE /* MyConfig.swift */,
 				AD9EC65120FE2EF4002AE9BF /* ViewController.swift */,
-				C77C3DF325EF6C00009F94FE /* Secrets.plist */,
+				C77C3DF325EF6C00009F94FE /* Config.plist */,
 				AD9EC65320FE2EF4002AE9BF /* Main.storyboard */,
 				AD9EC65620FE2EF7002AE9BF /* Assets.xcassets */,
 				AD9EC65820FE2EF7002AE9BF /* LaunchScreen.storyboard */,
@@ -277,7 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD9EC65A20FE2EF7002AE9BF /* LaunchScreen.storyboard in Resources */,
-				C77C3DF425EF6C00009F94FE /* Secrets.plist in Resources */,
+				C77C3DF425EF6C00009F94FE /* Config.plist in Resources */,
 				AD9EC65720FE2EF7002AE9BF /* Assets.xcassets in Resources */,
 				AD9EC66220FE319B002AE9BF /* README.md in Resources */,
 				AD9EC65520FE2EF4002AE9BF /* Main.storyboard in Resources */,
@@ -334,7 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C77C3DD125EE42C3009F94FE /* TweetSentimentClassifier.mlmodel in Sources */,
-				C77C3DF625EF6DC1009F94FE /* SettingsModel.swift in Sources */,
+				C77C3DF625EF6DC1009F94FE /* MyConfig.swift in Sources */,
 				AD9EC65220FE2EF4002AE9BF /* ViewController.swift in Sources */,
 				AD9EC65020FE2EF4002AE9BF /* AppDelegate.swift in Sources */,
 			);
